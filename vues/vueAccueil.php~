@@ -1,0 +1,35 @@
+<h2>Le site de critique sur les séries pour le cours de BDW</h2>
+
+<p id="paragDescription">
+	Bonjour,
+	Vous pouvez gérer des séries, des épisodes, et les acteur.ice.s.
+	<br>
+	Utilisez le menu à gauche pour découvrir les fonctionnalités de ce site.
+</p>
+
+<p>Que faire sur ce site ?</p>
+<ul>
+	<li>Afficher les données de la base</li>
+	<li>Ajouter une série</li>
+	<li>Rechercher une série ou une actrice</li>
+	<li>Générer un historique de votre activité sur le site</li>
+	<li>...</li>
+</ul>
+
+<div>
+	<img src="img/the-100.jpg"  height=500 />
+</div>
+
+<?php
+	$nb = countInstances($connexion, "Series");
+	if($nb <= 0)
+		$message = "Aucune série n'a été trouvée dans la base de données !";
+	else
+		$message = "<mark>Connecté à la base de données.</mark> : actuellement <strong>$nb séries</strong> dans la base.";
+
+?>
+<p><?= $message ?></p>
+
+
+
+

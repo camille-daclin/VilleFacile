@@ -1,0 +1,22 @@
+<?php 
+ajouterActiviteHistorique('consultation ajout d\'une série');
+if(isset($_POST['boutonValider'])) { // formulaire soumis
+
+	$libelle = $_POST['nomService']; // recuperation du libellé du service
+	$verification = getServiceByName($connexion, $libelle);
+
+	if($verification == FALSE || count($verification) == 0) { // pas de service avec ce nom, insertion
+		$insertion = insertService($connexion, $libelle);
+		if($insertion == TRUE) {
+			$message = "Le service $libelle a bien été ajoutée !";
+		}
+		else {
+			$message = "Erreur lors de l'insertion du service $libelle.";
+		}
+	}
+	else {
+		$message = "Un service existe déjà avec ce nom ($libelle).";
+	}
+}
+
+?>

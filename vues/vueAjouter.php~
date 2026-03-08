@@ -1,0 +1,13 @@
+<h2>Ajout d'un service</h2>
+
+<form method="post" action="#">
+	<label for="nomService">Nom du service: </label>
+	<input type="text" name="nomService" id="nomService" placeholder="Election" required />
+	<br/><br/>
+	<input type="submit" name="boutonValider" value="Ajouter"/>
+</form>
+
+<?php if(isset($message)) { ?>
+	<p style="background-color: #8be1cf;"><?= $message ?></p>
+<?php } ?>
+

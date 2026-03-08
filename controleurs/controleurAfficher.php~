@@ -1,0 +1,40 @@
+<?php 
+ajouterActiviteHistorique('affichage des données');
+$message = "";
+
+// recupération des séries
+$series = getInstances($connexion, "Series");
+if($series == null || count($series) == 0) {
+	$message .= "Aucune série n'a été trouvée dans la base de données !";
+}
+
+
+/*
+** À vous de jouer : lister les critiques en vous inspirant du code ci-dessus.
+** Vous pourrez plus tard améliorer le code en affichant chaque série avec les
+** critiques qui la concernent !
+*/
+$critique = getInstances($connexion, "Critiques");
+if($series == null || count($series) == 0) {
+	$message .= "Aucune critiques n'a été trouvée dans la base de données !";
+}
+
+
+// recupération des actrices
+$actrices = getInstances($connexion, "Actrices");
+if($actrices == null || count($actrices) == 0) {
+	$message .= "Aucune actrice n'a été trouvée dans la base de données !";
+}
+
+// recupération des épisodes numérotés 1 et 2 avec une requête préparée
+$stmt = prepareRequeteEpisodes($connexion);
+$episodes1 = getEpisodesPrepared($stmt, 1);
+if($episodes1 == null) {
+	$message .= "Aucun épisode numéroté 1 n'a été trouvé dans la base de données !";
+}
+$episodes2 = getEpisodesPrepared($stmt, 2);
+if($episodes2 == null) {
+	$message .= "Aucun épisode numéroté 2 n'a été trouvé dans la base de données !";
+}
+
+?>

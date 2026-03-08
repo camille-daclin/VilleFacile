@@ -1,0 +1,9 @@
+<!-- menu -->
+<nav>
+	<a href="index.php">Accueil</a></br>
+	<a href="index.php?page=afficher">Afficher</a></br>
+	<a href="index.php?page=ajouter">Ajouter série</a></br>
+	<a href="index.php?page=rechercher">Rechercher</a></br>
+	<a href="index.php?page=critiquer">Ajouter critique</a></br>
+</nav>
+
